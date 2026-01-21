@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários Informática - IF 2026</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #64748b;
+            --accent: #2563eb;
+            --tech: #0d9488;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #cbd5e1;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header { text-align: center; margin-bottom: 20px; }
+        h1 { margin: 0; font-size: 1.4rem; }
+        p { font-size: 0.85rem; color: var(--secondary); margin: 4px 0; }
+
+        /* Sistema de Abas */
+        .tabs {
+            display: flex;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary);
+            background: none;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            background: var(--white);
+            color: var(--accent);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Tabela com Layout Fixo */
+        .card {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            display: none;
+            overflow: hidden;
+        }
+
+        .card.active { display: block; }
+
+        .info-bar {
+            background: #f1f5f9;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .table-responsive { width: 100%; overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; /* Colunas de tamanho igual */
+            min-width: 850px; /* Mantém estrutura no celular */
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 10px 4px;
+            text-align: center;
+            font-size: 0.8rem;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .time-col { width: 90px; font-weight: bold; background: #f8fafc; }
+
+        /* Estilização de Matérias */
+        .tech { color: var(--tech); font-weight: 700; }
+        .empty { color: #cbd5e1; }
+        .today { background-color: #eff6ff !important; border: 2px solid var(--accent) !important; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.2rem; }
+            .tab-btn { padding: 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Horários Informatizada 2026</h1>
+        <p>Período: 19/02/2026 a 08/12/2026</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('t21', this)">Turma 21</button>
+        <button class="tab-btn" onclick="switchTab('t20', this)">Turma 20</button>
+    </div>
+
+    <!-- TURMA 21 (Fonte 1) -->
+    <div id="t21" class="card active">
+        <div class="info-bar">TURMA: 21 info | LOCAL: Sala 312</div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="time-col">Horário</th>
+                        <th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="time-col">08:00-08:50</td><td>Português</td><td>Matemática</td><td>Química</td><td>Matemática</td><td class="tech">Banco Dados</td></tr>
+                    <tr><td class="time-col">08:50-09:40</td><td>Português</td><td>Português</td><td>Química</td><td>Matemática</td><td class="tech">Banco Dados</td></tr>
+                    <tr><td class="time-col">09:55-10:45</td><td>Inglês</td><td>Ed. Física</td><td class="tech">Redes I</td><td>Física</td><td>História</td></tr>
+                    <tr><td class="time-col">10:45-11:35</td><td>Inglês</td><td>Ed. Física</td><td class="tech">Redes I</td><td>Física</td><td>História</td></tr>
+                    <tr><td class="time-col">13:30-14:20</td><td>Sociologia</td><td class="tech">Análise Sist</td><td class="empty">---</td><td class="tech">Prog II</td><td class="empty">---</td></tr>
+                    <tr><td class="time-col">14:20-15:10</td><td>Filosofia</td><td class="tech">Análise Sist</td><td class="empty">---</td><td class="tech">Prog II</td><td class="empty">---</td></tr>
+                    <tr><td class="time-col">15:25-16:15</td><td>Biologia</td><td class="tech">Hardware II</td><td class="empty">---</td><td>Geografia</td><td class="empty">---</td></tr>
+                    <tr><td class="time-col">16:15-17:05</td><td>Biologia</td><td class="tech">Hardware II</td><td class="empty">---</td><td>Geografia</td><td class="empty">---</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TURMA 20 (Fontes 3 e 4) -->
+    <div id="t20" class="card">
+        <div class="info-bar">TURMA: 20 info | LOCAL: Sala 312</div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="time-col">Horário</th>
+                        <th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="time-col">08:00-08:50</td><td>Inglês</td><td>Ed. Física</td><td class="tech">Redes I</td><td>Física</td><td>História</td></tr>
+                    <tr><td class="time-col">08:50-09:40</td><td>Inglês</td><td>Ed. Física</td><td class="tech">Redes I</td><td>Física</td><td>História</td></tr>
+                    <tr><td class="time-col">09:55-10:45</td><td>Português</td><td>Matemática</td><td>Química</td><td>Matemática</td><td class="tech">Banco Dados</td></tr>
+                    <tr><td class="time-col">10:45-11:35</td><td>Português</td><td>Português</td><td>Química</td><td>Matemática</td><td class="tech">Banco Dados</td></tr>
+                    <tr><td class="time-col">13:30-14:20</td><td>Biologia</td><td class="tech">Hardware II</td><td class="empty">---</td><td>Geografia</td><td class="empty">---</td></tr>
+                    <tr><td class="time-col">14:20-15:10</td><td>Biologia</td><td class="tech">Hardware II</td><td class="empty">---</td><td>Geografia</td><td class="empty">---</td></tr>
+                    <tr><td class="time-col">15:25-16:15</td><td>Sociologia</td><td class="tech">Análise Sist</td><td class="empty">---</td><td class="tech">Prog II</td><td class="empty">---</td></tr>
+                    <tr><td class="time-col">16:15-17:05</td><td>Filosofia</td><td class="tech">Análise Sist</td><td class="empty">---</td><td class="tech">Prog II</td><td class="empty">---</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Destaque do dia atual
+        const today = new Date().getDay();
+        if (today >= 1 && today <= 5) {
+            document.querySelectorAll('table').forEach(table => {
+                const header = table.querySelectorAll('th')[today];
+                if(header) header.classList.add('today');
+                table.querySelectorAll('tr').forEach(row => {
+                    const cell = row.querySelectorAll('td')[today];
+                    if(cell) cell.classList.add('today');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
